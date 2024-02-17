@@ -33,12 +33,12 @@ ApplicationWindow {
     ListModel {
         id: coffeeModel
         ListElement { name: "Espresso"; icon: "images/espresso.png" }
-        ListElement { name: "Mocha"; icon: "images/espresso.png" }
-        ListElement { name: "Espresso"; icon: "images/espresso.png" }
-        ListElement { name: "Mocha"; icon: "images/espresso.png" }
-        ListElement { name: "Espresso"; icon: "images/espresso.png" }
-        ListElement { name: "Mocha"; icon: "images/espresso.png" }
-        ListElement { name: "Espresso"; icon: "images/espresso.png" }
-        ListElement { name: "Mocha"; icon: "images/espresso.png" }
+        ListElement { name: "Americano"; icon: "images/americano.png" }
+        ListElement { name: "Cappuccino"; icon: "images/cappuccino.png" }
+        ListElement { name: "Latte"; icon: "images/latte.png" }
+        ListElement { name: "Mocha"; icon: "images/mocha.png" }
+        ListElement { name: "Chocolate"; icon: "images/chocolate.png" }
+        ListElement { name: "Milk"; icon: "images/milk.png" }
+        ListElement { name: "Favorite"; icon: "images/favorite.png" }
     }
 }
