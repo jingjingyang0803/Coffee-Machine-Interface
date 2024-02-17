@@ -6,7 +6,7 @@ Rectangle {
     height: 140
     radius: 20
 
-    color: "#795548"
+    color: "#BD8769"
 
     property alias imageSource: clickableImage.source
     property alias description: description.text
@@ -28,7 +28,7 @@ Rectangle {
         Text {
             id: description
             text: "Espresso"
-            color: "#D7CCC8"
+            color: "white"
             font.pixelSize: 20
             width: parent.width
             horizontalAlignment: Text.AlignHCenter
