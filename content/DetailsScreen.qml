@@ -2,11 +2,10 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts
 
-ApplicationWindow {
+Item {
     visible: true
     width: 640
     height: 350
-    title: "Coffee Customization"
 
     Image {
         id: clickableImage
@@ -52,33 +51,53 @@ ApplicationWindow {
             RadioButton { id: largeSize; text: "Large (475 ml)"; font.pixelSize: 20 }
         }
 
-        // Confirm Button
-        Button {
-            text: "Confirm"
-            font.pixelSize: 22
+        Row {
+            spacing: 20
             anchors.left: parent.left
-            anchors.leftMargin: 35
+            anchors.leftMargin: 10
 
-            onClicked: {
-                // Logic to handle the selection
-                console.log(temperatureLabel.text)
+            // Back Button
+            Button {
+                id: backButton
+                text: "Back"
+                font.pixelSize: 22
 
-                var selectedSize = "";
-                if (smallSize.checked) {
-                    selectedSize = "Small";
-                } else if (mediumSize.checked) {
-                    selectedSize = "Medium";
-                } else if (largeSize.checked) {
-                    selectedSize = "Large";
+                onClicked: {
                 }
 
-                console.log("Selected size: " + selectedSize);
+                // Customizing the button appearance
+                background: Rectangle {
+                    color: "#79B82B"
+                    radius: 10 // Corner radius
+                }
             }
 
-            // Customizing the button appearance
-            background: Rectangle {
-                color: "#79B82B"
-                radius: 10 // Corner radius
+            // Confirm Button
+            Button {
+                text: "Confirm"
+                font.pixelSize: 22
+
+                onClicked: {
+                    // Logic to handle the selection
+                    console.log(temperatureLabel.text)
+
+                    var selectedSize = "";
+                    if (smallSize.checked) {
+                        selectedSize = "Small";
+                    } else if (mediumSize.checked) {
+                        selectedSize = "Medium";
+                    } else if (largeSize.checked) {
+                        selectedSize = "Large";
+                    }
+
+                    console.log("Selected size: " + selectedSize);
+                }
+
+                // Customizing the button appearance
+                background: Rectangle {
+                    color: "#79B82B"
+                    radius: 10 // Corner radius
+                }
             }
         }
     }
