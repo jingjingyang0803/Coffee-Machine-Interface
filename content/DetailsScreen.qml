@@ -94,6 +94,9 @@ Item {
                     }
 
                     console.log("Selected size: " + selectedSize);
+
+                    // Push ProcessingScreen and pass the stackView
+                    stackView.push(Qt.resolvedUrl("ProcessingScreen.qml"), {"stackView": stackView});
                 }
 
                 // Customizing the button appearance

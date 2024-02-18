@@ -123,6 +123,9 @@ Item {
                     console.log(strengthLabel.text)
                     console.log(temperatureLabel.text)
                     console.log(sizeLabel.text)
+
+                    // Push ProcessingScreen and pass the stackView
+                    stackView.push(Qt.resolvedUrl("ProcessingScreen.qml"), {"stackView": stackView});
                 }
 
                 // Customizing the button appearance
