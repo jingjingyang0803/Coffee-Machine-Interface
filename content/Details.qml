@@ -5,7 +5,7 @@ import QtQuick.Layouts
 ApplicationWindow {
     visible: true
     width: 640
-    height: 400
+    height: 350
     title: "Coffee Customization"
 
     Image {
@@ -16,7 +16,7 @@ ApplicationWindow {
     }
 
     Column {
-        spacing: 30
+        spacing: 20
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 50

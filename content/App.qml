@@ -4,16 +4,19 @@
 import QtQuick 6.5
 import CoffeMachineInterface
 
-Window {
-    width: mainScreen.width
-    height: mainScreen.height
-
+ApplicationWindow {
     visible: true
-    title: "CoffeMachineInterface"
+    width: 640
+    height: 480
+    title: "Coffee Shop"
 
-    Screen01 {
-        id: mainScreen
+    StackView {
+        id: stackView
+        anchors.fill: parent
+
+        initialItem: Menu {
+            onImageClicked: stackView.push(Qt.resolvedUrl("Customization.qml"), {"coffeeName": name})
+        }
     }
-
 }
 

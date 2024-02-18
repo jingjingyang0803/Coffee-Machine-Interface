@@ -4,8 +4,8 @@ import QtQuick.Controls 2.15
 ApplicationWindow {
     visible: true
     width: 640
-    height: 480
-    title: "Coffee Machine Interface"
+    height: 350
+    title: "Menu"
 
     Rectangle {
         anchors.fill: parent
@@ -16,17 +16,36 @@ ApplicationWindow {
         }
     }
 
+    function navigateToCoffeeDetails(coffeeName) {
+        // Logic to navigate to the details screen
+        console.log("Navigate to: " + coffeeName)
+        // This could involve changing the visible screen,
+        // opening a new window, etc.
+    }
+
     GridView {
         width: cellWidth * 4
         height: cellHeight * 2
-        cellWidth: 130
-        cellHeight: 160
+        cellWidth: 110 + 20
+        cellHeight: 140 + 20
         model: coffeeModel
-        delegate: Coffee {
-            description: name
-            imageSource: icon
-        }
         anchors.centerIn: parent
+
+        delegate: Item {
+            width: 130
+            height: 160
+
+            Coffee {
+                id: coffeeComponent
+                description: name
+                imageSource: icon
+
+                // Anchor the coffeeComponent in the center of the delegate item
+                anchors.centerIn: parent
+
+                onImageClicked: navigateToCoffeeDetails(name)
+            }
+        }
     }
 
     // Model for coffee types
