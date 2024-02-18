@@ -1,22 +1,23 @@
-// Copyright (C) 2021 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
-
-import QtQuick 6.5
-import CoffeMachineInterface
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: "Coffee Shop"
+    title: "Coffee App"
 
     StackView {
         id: stackView
         anchors.fill: parent
 
-        initialItem: Menu {
-            onImageClicked: stackView.push(Qt.resolvedUrl("Customization.qml"), {"coffeeName": name})
+        initialItem: MenuScreen {
+            onCoffeeSelected: stackView.push(detailsScreen)
         }
     }
-}
 
+    Component {
+        id: detailsScreen
+        DetailsScreen {} //
+    }
+}
