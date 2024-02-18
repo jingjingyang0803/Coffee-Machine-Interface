@@ -7,6 +7,8 @@ Item {
     width: 640
     height: 350
 
+    property var stackView: null
+
     Image {
         id: clickableImage
         source: "images/coffee_break.png"
@@ -63,6 +65,7 @@ Item {
                 font.pixelSize: 22
 
                 onClicked: {
+                    stackView.pop();
                 }
 
                 // Customizing the button appearance

@@ -1,11 +1,12 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
-ApplicationWindow {
+Item {
     visible: true
     width: 640
     height: 350
-    title: "Menu"
+
+    signal coffeeSelected(string coffeeName)
 
     Rectangle {
         anchors.fill: parent
@@ -14,13 +15,6 @@ ApplicationWindow {
             GradientStop { position: 0.5; color: "#b08968" } // Medium coffee color
             GradientStop { position: 1.0; color: "#3b2b1e" } // Dark espresso color
         }
-    }
-
-    function navigateToCoffeeDetails(coffeeName) {
-        // Logic to navigate to the details screen
-        console.log("Navigate to: " + coffeeName)
-        // This could involve changing the visible screen,
-        // opening a new window, etc.
     }
 
     GridView {
@@ -43,7 +37,9 @@ ApplicationWindow {
                 // Anchor the coffeeComponent in the center of the delegate item
                 anchors.centerIn: parent
 
-                onImageClicked: navigateToCoffeeDetails(name)
+                onImageClicked: {
+                    coffeeSelected(name) // Emit the signal with the coffee name
+                }
             }
         }
     }

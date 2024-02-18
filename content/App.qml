@@ -13,7 +13,7 @@ ApplicationWindow {
 
         initialItem: MenuScreen {
             onCoffeeSelected: {
-                stackView.push(Qt.resolvedUrl("DetailsScreen.qml"))
+                stackView.push(Qt.resolvedUrl("DetailsScreen.qml"), {"stackView": stackView})
             }
         }
     }
