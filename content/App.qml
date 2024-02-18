@@ -12,8 +12,12 @@ ApplicationWindow {
         anchors.fill: parent
 
         initialItem: MenuScreen {
-            onCoffeeSelected: {
-                stackView.push(Qt.resolvedUrl("DetailsScreen.qml"), {"stackView": stackView})
+            onCoffeeSelected: function(coffeeName) {
+                if (coffeeName === "Favorite") {
+                    stackView.push(Qt.resolvedUrl("FavoriteScreen.qml"), {"stackView": stackView});
+                } else {
+                    stackView.push(Qt.resolvedUrl("DetailsScreen.qml"), {"coffeeName": coffeeName, "stackView": stackView});
+                }
             }
         }
     }
