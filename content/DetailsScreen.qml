@@ -10,20 +10,22 @@ Item {
     property var stackView: null
 
     Image {
-        id: clickableImage
+        id: backgroundImage
         source: "images/coffee_break.png"
         width: parent.width
-        fillMode: Image.PreserveAspectFit
+        fillMode: Image.PreserveAspectFit // Keep the aspect ratio of the image
     }
 
+    // Main column layout for the interface elements
     Column {
         spacing: 20
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 50
 
+        // Sub-column for coffee temperature selection
         Column {
-            // Coffee Temperature Selection
+            // Label displaying the selected temperature
             Label {
                 id: temperatureLabel
                 font.pixelSize: 20
@@ -32,15 +34,17 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: 5
             }
+
+            // Slider for selecting the coffee temperature
             Slider {
                 id: temperature
-                width: 200
-                from: 0
-                to: 100
-                stepSize: 1
+                width: 200 // Set width
+                from: 0 // Minimum temperature value
+                to: 100 // Maximum temperature value
+                stepSize: 1 // Increment step
                 value: 95  // Set initial value
                 onValueChanged: {
-                    temperatureLabel.text = "Temperature: " + value + "°C"
+                    temperatureLabel.text = "Temperature: " + value + "°C" // Update label text on value change
                 }
             }
         }
@@ -58,14 +62,14 @@ Item {
             anchors.left: parent.left
             anchors.leftMargin: 10
 
-            // Back Button
+            // Back button to return to the previous screen
             Button {
                 id: backButton
                 text: "Back"
                 font.pixelSize: 22
 
                 onClicked: {
-                    stackView.pop();
+                    stackView.pop(); // Pop the current view from the stack view
                 }
 
                 // Customizing the button appearance
@@ -75,7 +79,7 @@ Item {
                 }
             }
 
-            // Confirm Button
+            // Confirm button to finalize the selection
             Button {
                 text: "Confirm"
                 font.pixelSize: 22

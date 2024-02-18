@@ -5,8 +5,9 @@ Item {
     width: 640
     height: 350
 
-    property var stackView: null
+    property var stackView: null // Property to hold a reference to the stackView
 
+    // Background rectangle with a gradient
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
@@ -16,6 +17,7 @@ Item {
         }
     }
 
+    // Column layout to organize the controls vertically
     Column {
         spacing: 20
         anchors.verticalCenter: parent.verticalCenter
@@ -40,6 +42,7 @@ Item {
                 stepSize: 0.5
                 value: 0.5  // Set initial value
                 onValueChanged: {
+                    // Update the label text when the slider value changes
                     strengthLabel.text = "Milk to coffee ratio: " + value
                 }
             }
@@ -63,6 +66,7 @@ Item {
                 stepSize: 1
                 value: 95  // Set initial value
                 onValueChanged: {
+                    // Update the label text when the slider value changes
                     temperatureLabel.text = "Temperature: " + value + "°C"
                 }
             }
@@ -86,13 +90,15 @@ Item {
                 stepSize: 1
                 value: 355  // Set initial value
                 onValueChanged: {
+                    // Update the label text when the slider value changes
                     sizeLabel.text = "Size: " + value + " ml"
                 }
             }
         }
 
+        // Row layout for buttons
         Row {
-            spacing: 20
+            spacing: 20 // Space between each button
             anchors.left: parent.left
             anchors.leftMargin: 10
 
@@ -103,6 +109,7 @@ Item {
                 font.pixelSize: 22
 
                 onClicked: {
+                    // Pop the current view from the stackView
                     stackView.pop();
                 }
 
@@ -119,7 +126,7 @@ Item {
                 font.pixelSize: 22
 
                 onClicked: {
-                    // Logic to handle the selection
+                    // Log the selected options and push a new screen
                     console.log(strengthLabel.text)
                     console.log(temperatureLabel.text)
                     console.log(sizeLabel.text)

@@ -6,8 +6,10 @@ Item {
     width: 640
     height: 350
 
+    // Custom signal to notify when a coffee type is selected
     signal coffeeSelected(string coffeeName)
 
+    // Background rectangle with gradient
     Rectangle {
         anchors.fill: parent
         gradient: Gradient {
@@ -17,6 +19,7 @@ Item {
         }
     }
 
+    // GridView to display coffee options
     GridView {
         width: cellWidth * 4
         height: cellHeight * 2
@@ -29,24 +32,26 @@ Item {
             width: 130
             height: 160
 
+            // Custom coffee component
             Coffee {
                 id: coffeeComponent
-                description: name
-                imageSource: icon
+                description: name // Bind the description to the coffee name
+                imageSource: icon // Bind the image source to the coffee icon
 
-                // Anchor the coffeeComponent in the center of the delegate item
-                anchors.centerIn: parent
+                anchors.centerIn: parent // Center the coffee component in the delegate item
 
+                // Handler for when an image in the coffee component is clicked
                 onImageClicked: {
-                    coffeeSelected(name) // Emit the signal with the coffee name
+                    coffeeSelected(name) // Emit the coffeeSelected signal with the name of the coffee
                 }
             }
         }
     }
 
-    // Model for coffee types
+    // Model to hold data about different coffee types
     ListModel {
         id: coffeeModel
+        // Define each coffee type with a name and icon
         ListElement { name: "Espresso"; icon: "images/espresso.png" }
         ListElement { name: "Americano"; icon: "images/americano.png" }
         ListElement { name: "Cappuccino"; icon: "images/cappuccino.png" }
