@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 ApplicationWindow {
     visible: true
     width: 640
-    height: 480
+    height: 350
     title: "Coffee App"
 
     StackView {
@@ -12,12 +12,9 @@ ApplicationWindow {
         anchors.fill: parent
 
         initialItem: MenuScreen {
-            onCoffeeSelected: stackView.push(detailsScreen)
+            onCoffeeSelected: {
+                stackView.push(Qt.resolvedUrl("DetailsScreen.qml"))
+            }
         }
-    }
-
-    Component {
-        id: detailsScreen
-        DetailsScreen {} //
     }
 }
